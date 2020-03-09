@@ -1,4 +1,4 @@
-import React, { useState, Component } from 'react';
+import React, { useState, Component, createRef } from 'react';
 import {
     View,
     Text,
@@ -12,6 +12,7 @@ import ImageOneHero from './imageOneHero.js';
 class ShowHeroOneLine extends Component {
     constructor(props) {
         super(props)
+
 
     }
 
@@ -50,6 +51,7 @@ class Pokemons extends Component {
             heroStart: [],
             heroEnd: []
         }
+        this['canvas'] = createRef()
     }
 
     render() {
@@ -58,7 +60,10 @@ class Pokemons extends Component {
         return (
             <View style={{ borderColor: 'green', borderWidth: 2, alignItems: 'center' }}>
                 <View style={{ marginTop: -16 }}></View>
-                <ShowHeros setStateEndStart={this.setState}/>
+                <ShowHeros
+                    setStateEndStart={this.setState}
+                    ref={showHerosRef => this.showHeros = showHerosRef}
+                />
                 <View style={{ marginTop: 16 }}></View>
             </View>
         )

@@ -11,6 +11,7 @@ export default class ImageOneHero extends Component {
         
     }
     onPressHero() {
+        console.log('object')
         this.setState({
             colorHero: 'green',
             item: 0
